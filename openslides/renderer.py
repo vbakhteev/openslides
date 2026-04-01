@@ -333,8 +333,8 @@ This is a CONSULTING deck, NOT a startup pitch deck. Key differences:
 2. Match the reference template's visual quality. Adapt the LAYOUT for this slide type (not every slide should use the same split pattern).
 3. Adapt ALL content for the company and slide type. Do NOT copy the reference content.
 4. Use the theme colors and fonts from the tokens above.
-5. CSS MUST include: @page {{ size: 1920px 1080px; margin: 0; }} and body must use display:flex; flex-direction:column; with the main content area using flex:1 to fill ALL vertical space. NO bottom margin gap.
-6. Fill the ENTIRE 1920x1080 canvas. The content must reach the bottom. If content is short, use larger elements, more padding inside cards, or add a footer bar.
+5. CSS MUST include: @page {{ size: 1920px 1080px; margin: 0; }}. Body: display:flex; flex-direction:column; padding: 56px 80px 40px (SMALL bottom padding). The main content container MUST use flex:1 to stretch to the bottom.
+6. CRITICAL: NO visible empty space at the bottom of the slide. The content must visually reach the bottom edge. If the main content is short, add a bottom bar with stats, a source citation, or increase card sizes. Test: if you drew a line at y=1040px, content should be there.
 7. If logo URLs are provided, embed them as <img src="URL"> with proper sizing (24-48px height).
 8. Headlines max 10 words, with key phrase in italic + accent color.
 9. ONLY use numbers and stats that are in the brief or can be reasonably inferred. Do NOT invent fake metrics.
