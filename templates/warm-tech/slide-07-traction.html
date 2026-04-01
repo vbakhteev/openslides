@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=1920">
+<title>floom - Traction</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print { body::before { display: none !important; } * { box-shadow: none !important; } }
+html { height: 1080px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FAFAF7; color: #161512;
+  padding: 64px 80px; display: flex; flex-direction: column;
+  position: relative;
+}
+body::before {
+  content: ''; position: absolute; top: -100px; right: 100px;
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, rgba(251,191,36,0.04) 50%, transparent 70%);
+}
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left svg { width: 28px; height: 28px; }
+.header-left span { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #161512; letter-spacing: -0.5px; }
+.section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C4C1B8; }
+h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; color: #161512; margin-bottom: 32px; flex-shrink: 0; }
+h1 em { color: #059669; font-style: italic; }
+
+.two-col { display: flex; gap: 60px; flex: 1; min-height: 0; align-items: center; }
+.col-left { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+.col-right { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+
+.stage-card {
+  background: #ecfdf5; border: 1px solid #d1fae5; border-radius: 16px; padding: 40px;
+}
+.stage-label { font-size: 14px; color: #059669; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.stage-hero { font-family: 'DM Serif Display', serif; font-size: 64px; color: #161512; line-height: 1.1; }
+.stage-desc { font-size: 17px; color: #5A5850; margin-top: 12px; line-height: 1.6; }
+
+.screenshot-wrap { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 60px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.06); }
+.product-screenshot { width: 100%; display: block; border-radius: 12px; }
+
+.validated-section h3 { font-size: 18px; font-weight: 700; color: #161512; margin-bottom: 12px; }
+.validated-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.validated-list li { display: flex; align-items: center; gap: 12px; font-size: 16px; color: #5A5850; }
+.validated-dot { width: 8px; height: 8px; min-width: 8px; border-radius: 50%; background: #059669; }
+
+.why-card {
+  background: #ecfdf5; border: 1px solid #d1fae5; border-radius: 16px; padding: 28px;
+}
+.why-card h3 { font-size: 17px; font-weight: 700; color: #161512; margin-bottom: 8px; }
+.why-card p { font-size: 15px; color: #5A5850; line-height: 1.6; }
+.why-card p strong { color: #059669; font-weight: 700; }
+
+.tech-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.tech-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #F5F4F0; border-radius: 16px; padding: 6px 16px;
+  font-size: 14px; color: #5A5850; text-decoration: none;
+}
+.tech-badge img { width: 16px; height: 16px; }
+
+.page-num { position: absolute; bottom: 64px; right: 80px; font-size: 14px; color: #DDDBD4; }
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: url(grain.png) repeat;
+  opacity: 0.2; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><a href="https://floom.dev" target="_blank" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 Q4 6 4 12 L4 36 Q4 42 10 42 L28 42 L44 24 L28 6 Z" fill="#059669"></path></svg>
+    <span>floom</span></a>
+  </div>
+  <span class="section-label">Status</span>
+  <span class="section-label">{{RECIPIENT}}</span>
+</div>
+
+<h1>Built the Prototype Solo. <em>Hiring to Ship.</em></h1>
+
+<div class="two-col">
+  <div class="col-left">
+    <div class="stage-card">
+      <div class="stage-label">Current Stage</div>
+      <div class="stage-hero">Prototype</div>
+      <div class="stage-desc">Core engine built. Control plane, runner, UI, CLI all functional. Ready for the first external users.</div>
+    </div>
+
+    <div class="screenshot-wrap">
+      <img src="product-screenshot.png" alt="floom dashboard" class="product-screenshot">
+    </div>
+  </div>
+
+  <div class="col-right">
+    <div class="validated-section">
+      <h3>What's Validated</h3>
+      <ul class="validated-list">
+        <li><span class="validated-dot"></span>Founder is User #0</li>
+        <li><span class="validated-dot"></span>Dozens of vibecoders validated the problem</li>
+        <li><span class="validated-dot"></span>5K LinkedIn followers</li>
+        <li><span class="validated-dot"></span>700K+ LinkedIn impressions, 1M+ cross-platform</li>
+      </ul>
+    </div>
+
+    <div class="why-card">
+      <h3>Why invest now?</h3>
+      <p>The protocol is designed. The engine works. What's missing is infrastructure and distribution, not validation. First external users within <strong>90 days</strong> of funding.</p>
+    </div>
+
+    <div class="tech-badges">
+      <a class="tech-badge" href="https://hono.dev/" target="_blank"><img src="https://cdn.simpleicons.org/hono/E36002" alt="Hono">Hono</a>
+      <a class="tech-badge" href="https://docker.com/" target="_blank"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">Docker</a>
+      <a class="tech-badge" href="https://python.org/" target="_blank"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python">Python</a>
+      <a class="tech-badge" href="https://react.dev/" target="_blank"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React">React</a>
+      <a class="tech-badge" href="https://sqlite.org/" target="_blank"><img src="https://cdn.simpleicons.org/sqlite/003B57" alt="SQLite">SQLite</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-num">07</div>
+
+</body></html>

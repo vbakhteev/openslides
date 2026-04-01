@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=1920">
+<title>floom - Founder</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print { body::before { display: none !important; } * { box-shadow: none !important; } }
+html { height: 1080px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FAFAF7; color: #161512;
+  padding: 64px 80px; display: flex; flex-direction: column;
+  position: relative;
+}
+body::before {
+  content: ''; position: absolute; top: -100px; right: 100px;
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, rgba(251,191,36,0.04) 50%, transparent 70%);
+}
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left svg { width: 28px; height: 28px; }
+.header-left span { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #161512; letter-spacing: -0.5px; }
+.section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C4C1B8; }
+h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; color: #161512; margin-bottom: 24px; flex-shrink: 0; }
+h1 em { color: #059669; font-style: italic; }
+
+.two-col { display: flex; gap: 48px; flex: 1; min-height: 0; align-items: center; }
+.col-left { flex: 0 0 34%; display: flex; gap: 20px; align-items: flex-start; justify-content: center; }
+.col-right { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+
+.team-card { display: flex; flex-direction: column; align-items: center; }
+.team-photo {
+  width: 200px; height: 200px; border-radius: 14px; object-fit: cover; margin-bottom: 16px;
+}
+.team-placeholder {
+  width: 160px; height: 160px; border-radius: 14px;
+  background: #F5F4F0; border: 1px solid #ECEAE4;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.team-placeholder svg { width: 60px; height: 60px; }
+.team-name { font-size: 26px; font-weight: 700; color: #161512; text-align: center; }
+.team-name.green { color: #059669; }
+.team-role { font-size: 17px; color: #5A5850; margin-top: 4px; text-align: center; }
+.team-loc { font-size: 15px; color: #A09D94; margin-top: 2px; text-align: center; }
+
+.cred-card {
+  border-radius: 16px; padding: 40px 40px;
+}
+.cred-dark { background: #064e3b; }
+.cred-white {
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+}
+.cred-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.cred-dot { width: 10px; height: 10px; min-width: 10px; border-radius: 50%; background: #059669; }
+.cred-title-dark { font-size: 20px; font-weight: 700; color: #fff; }
+.cred-title-light { font-size: 20px; font-weight: 700; color: #161512; }
+.cred-desc-dark { font-size: 15px; color: #A09D94; line-height: 1.6; margin-bottom: 14px; }
+.cred-desc-light { font-size: 15px; color: #5A5850; line-height: 1.6; margin-bottom: 14px; }
+
+.cred-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge-dark {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.08); border-radius: 16px; padding: 5px 14px;
+  font-size: 14px; color: #A09D94; text-decoration: none;
+}
+.badge-light {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #F5F4F0; border-radius: 16px; padding: 5px 14px;
+  font-size: 14px; color: #5A5850; text-decoration: none;
+}
+.badge-dark img, .badge-light img { width: 16px; height: 16px; }
+
+.cred-line { font-size: 14px; color: #A09D94; margin-top: 16px; line-height: 1.6; }
+
+.page-num { position: absolute; bottom: 64px; right: 80px; font-size: 14px; color: #DDDBD4; }
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: url(grain.png) repeat;
+  opacity: 0.2; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><a href="https://floom.dev" target="_blank" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 Q4 6 4 12 L4 36 Q4 42 10 42 L28 42 L44 24 L28 6 Z" fill="#059669"></path></svg>
+    <span>floom</span></a>
+  </div>
+  <span class="section-label">Team</span>
+  <span class="section-label">{{RECIPIENT}}</span>
+</div>
+
+<h1>Solo Founder. <em>AI-native from Day One.</em></h1>
+
+<div class="two-col">
+  <div class="col-left">
+    <div class="team-card">
+      <div style="position:relative;display:inline-block;"><img class="team-photo" src="./fede.jpg" alt="Fede De Ponte"><a href="https://linkedin.com/in/federicodeponte" target="_blank" style="position:absolute;bottom:8px;right:8px;width:24px;height:24px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.15);"><img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=32" style="width:14px;height:14px;"></a></div>
+      <div class="team-name">Fede De Ponte</div>
+      <div class="team-role">Founder &amp; CEO</div>
+      <div class="team-loc">Berlin, relocating to SF</div>
+      <div style="font-size:13px;color:#7A776E;margin-top:8px;line-height:1.4;max-width:200px;text-align:center;">Top 0.8% Cursor user. Built so much code that deploying became the bottleneck.</div>
+      
+      
+    </div>
+    <div class="team-card">
+      <img class="team-photo" src="./claude-code-mascot.png" alt="Claude Code" style="border-radius:12px;object-fit:cover;background:#2a1f1a;">
+      <div class="team-name">Claude Code</div>
+      <div class="team-role">AI Co-Founder</div>
+      <div class="team-loc">Anthropic / 50B+ tokens</div>
+      <div style="font-size:13px;color:#7A776E;margin-top:8px;line-height:1.4;max-width:200px;text-align:center;">Built the entire prototype. 1,300+ tests. Ships 24/7.</div>
+    </div>
+    
+    
+  </div>
+
+  <div class="col-right">
+    <div style="font-size:12px;color:#999;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:12px;">Founder Track Record</div>
+    <div class="cred-card cred-dark">
+      <div class="cred-header">
+        <span class="cred-dot"></span>
+        <span class="cred-title-dark">Scaled to $600K ARR. Raised $500K total.</span>
+      </div>
+      <div class="cred-desc-dark">Co-founded SCAILE, an AI visibility engine (ChatGPT, Perplexity, Google AI Overviews). Scaled to $600K ARR, team of 10. Raised $135K pre-seed + $350K in grants.</div>
+      <div class="cred-badges">
+        <a class="badge-dark" href="https://scaile.tech/" target="_blank"><img src="https://www.google.com/s2/favicons?domain=scaile.tech&sz=32" alt="SCAILE">SCAILE</a>
+        <a class="badge-dark" href="https://startup.google.com" target="_blank"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" alt="Google">Google for Startups</a>
+        <a class="badge-dark" href="https://www.microsoft.com/en-us/startups" target="_blank"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=32" alt="Microsoft">Microsoft for Startups</a>
+        <a class="badge-dark" href="https://www.tum.de" target="_blank"><img src="https://www.google.com/s2/favicons?domain=tum.de&sz=32" alt="TUM">TUM AI / Venture Labs</a>
+        <a class="badge-dark" href="https://innovationsstarter.com/innofintech/" target="_blank"><img src="https://www.google.com/s2/favicons?domain=ifbhh.de&sz=32" alt="IFB InnoFinTech">InnoFinTech (IFB)</a>
+        <a class="badge-dark" href="https://nextmedia-hamburg.de" target="_blank"><img src="https://www.google.com/s2/favicons?domain=nextmedia-hamburg.de&sz=32" alt="nextMedia">nextMedia Hamburg</a>
+      </div>
+    </div>
+
+    <div class="cred-card cred-white">
+      <div class="cred-header">
+        <span class="cred-dot"></span>
+        <span class="cred-title-light">Scaled consultancy to 6-figure revenue in &lt;2 years</span>
+      </div>
+      <div class="cred-desc-light">At 20, led 27 consultants at advisupply consulting e.V. Acquired and managed paid projects (six-digit €), presented deliverables to C-level clients.</div>
+      <div class="cred-badges">
+        <a class="badge-light" href="https://advisupply.com/" target="_blank"><img src="https://www.google.com/s2/favicons?domain=advisupply.com&sz=32" alt="advisupply">advisupply</a>
+      </div>
+    </div>
+
+    <div class="cred-badges" style="margin-top: 8px;">
+      <a class="badge-light" href="https://novasbe.pt" target="_blank"><img src="https://www.google.com/s2/favicons?domain=novasbe.pt&sz=32" alt="Nova SBE">Nova SBE</a>
+      <a class="badge-light" href="https://cems.org" target="_blank"><img src="https://www.google.com/s2/favicons?domain=cems.org&sz=32" alt="CEMS">CEMS MIM</a>
+      <a class="badge-light" href="https://klu.org" target="_blank"><img src="https://www.google.com/s2/favicons?domain=klu.org&sz=32" alt="KLU">KLU (Dean's List)</a>
+      <a class="badge-light" href="https://biz.korea.ac.kr" target="_blank"><img src="https://www.google.com/s2/favicons?domain=biz.korea.ac.kr&sz=32" alt="KUBS">KUBS Seoul</a>
+      
+      
+      <a class="badge-light" href="https://bcg.com" target="_blank"><img src="https://www.google.com/s2/favicons?domain=bcg.com&sz=32" alt="BCG">BCG</a>
+      <a class="badge-light" href="https://kuehne-nagel.com" target="_blank"><img src="https://www.google.com/s2/favicons?domain=kuehne-nagel.com&sz=32" alt="K+N">Kühne+Nagel</a>
+      <a class="badge-light" href="https://cursor.com" target="_blank"><img src="https://www.google.com/s2/favicons?domain=cursor.com&sz=32" alt="Cursor">Cursor Top 0.8%</a>
+      
+      
+    </div>
+  </div>
+</div>
+
+<div class="page-num">08</div>
+
+</body></html>

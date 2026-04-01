@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fffbfc;
+      color: #1f1f1f;
+      width: 1920px;
+      height: 1080px;
+      padding: 80px 120px;
+      position: relative;
+    }
+    .accent-circle {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: #ec4899;
+      opacity: 0.08;
+      top: -100px;
+      right: -100px;
+    }
+    .label {
+      display: inline-block;
+      background: #ec4899;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #1f1f1f;
+      margin-bottom: 40px;
+      max-width: 900px;
+    }
+    .content {
+      font-size: 22px;
+      line-height: 1.8;
+      color: #4a4a4a;
+      max-width: 1000px;
+      background: #fdf2f8;
+      padding: 40px;
+      border-radius: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="accent-circle"></div>
+  <span class="label">Business Model</span>
+  <h1 class="headline">$3.2M ARR. Path to $100M.</h1>
+  <div class="content">
+                    <div style="display: flex; gap: 60px; margin-bottom: 40px;">
+                        <div style="flex: 1; background: #fdf2f8; padding: 40px; border-radius: 16px;">
+                            <div style="font-size: 48px; font-weight: 800; color: #ec4899;">$3.2M</div>
+                            <div style="font-size: 18px; color: #666; margin-bottom: 20px;">Current ARR</div>
+                            <div style="font-size: 16px; color: #333;">
+                                • 80K paying subscribers<br>
+                                • $40 average revenue per user<br>
+                                • 4% free-to-paid conversion
+                            </div>
+                        </div>
+                        <div style="flex: 1; background: #f0fdf4; padding: 40px; border-radius: 16px;">
+                            <div style="font-size: 48px; font-weight: 800; color: #22c55e;">$100M</div>
+                            <div style="font-size: 18px; color: #666; margin-bottom: 20px;">Target ARR (3 years)</div>
+                            <div style="font-size: 16px; color: #333;">
+                                • 2M paying subscribers<br>
+                                • $50 ARPU (upsells + books)<br>
+                                • 5% conversion rate
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 20px; color: #333;">
+                        <strong>Unit economics:</strong> LTV $180 / CAC $12 = 15x LTV:CAC ratio
+                    </p>
+                </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide - Solution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fffbfc;
+      color: #1f1f1f;
+      width: 1920px;
+      height: 1080px;
+      padding: 80px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gradient-blob {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #f472b6);
+      opacity: 0.12;
+      filter: blur(100px);
+      top: -200px;
+      right: -100px;
+    }
+    .label {
+      display: inline-block;
+      background: #ec4899;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subheadline {
+      font-size: 22px;
+      color: #4a4a4a;
+      margin-bottom: 50px;
+      max-width: 700px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: #fdf2f8;
+      padding: 36px 28px;
+      border-radius: 24px;
+      border: 2px solid #fce7f3;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .feature-desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #4a4a4a;
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-blob"></div>
+  <div class="label">Solution</div>
+  <h1 class="headline">Photos that tell themselves.</h1>
+  <p class="subheadline">Momento uses AI to automatically create beautiful, shareable journals from your camera roll. Add your voice, share with loved ones, preserve what matters.</p>
+  <div class="features-grid">
+    
+            <div class="feature-card">
+              <div class="feature-icon">✨</div>
+              <div class="feature-title">Smart Curation</div>
+              <div class="feature-desc">AI identifies your best moments, removes duplicates and clutter, and groups photos into meaningful stories.</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎯</div>
+              <div class="feature-title">Memory Prompts</div>
+              <div class="feature-desc">We surface old photos at the right moment and prompt you to add the story. 'Who was at Thanksgiving 2019?'</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <div class="feature-title">Shared Journals</div>
+              <div class="feature-desc">Create collaborative albums with family. Everyone adds their photos and stories to the same memory.</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🚀</div>
+              <div class="feature-title">Print & Gift</div>
+              <div class="feature-desc">Turn any journal into a beautiful photo book delivered to your door. Perfect for birthdays and holidays.</div>
+            </div>
+  </div>
+</body>
+</html>

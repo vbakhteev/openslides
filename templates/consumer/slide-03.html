@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide - Validation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fffbfc;
+      color: #1f1f1f;
+      width: 1920px;
+      height: 1080px;
+      padding: 80px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gradient-blob {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #f472b6);
+      opacity: 0.1;
+      filter: blur(80px);
+      bottom: -150px;
+      right: -150px;
+    }
+    .label {
+      display: inline-block;
+      background: #ec4899;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 50px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .quote-card {
+      background: #fdf2f8;
+      border-radius: 24px;
+      padding: 32px;
+      border: 2px solid #fce7f3;
+    }
+    .stars {
+      color: #ec4899;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .quote-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #1f1f1f;
+      margin-bottom: 24px;
+    }
+    .quote-text em {
+      background: rgba(236, 72, 153, 0.15);
+      padding: 2px 4px;
+      font-style: normal;
+    }
+    .quote-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ec4899;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    .author-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .author-role {
+      font-size: 13px;
+      color: #7a7a7a;
+    }
+    .bottom-stat {
+      margin-top: 32px;
+      padding: 24px 32px;
+      background: linear-gradient(135deg, #ec4899, #f472b6);
+      color: white;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .stat-num {
+      font-size: 40px;
+      font-weight: 800;
+    }
+    .stat-text {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-blob"></div>
+  <div class="label">Validation</div>
+  <h1 class="headline">2 million people felt the same way.</h1>
+  <div class="quotes-grid">
+    
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <div class="quote-text">"I've been looking for something like this for years. Finally an app that makes my photos feel like <em>memories again, not just files</em>."</div>
+              <div class="quote-author">
+                <div class="author-avatar">E</div>
+                <div class="author-info">
+                  <div class="author-name">Emma</div>
+                  <div class="author-role">Mom of 2, App Store Review ★★★★★</div>
+                </div>
+              </div>
+            </div>
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <div class="quote-text">"My grandma passed last year. Momento helped me <em>rediscover photos I forgot existed</em>. I cried for an hour. Thank you."</div>
+              <div class="quote-author">
+                <div class="author-avatar">M</div>
+                <div class="author-info">
+                  <div class="author-name">Michael</div>
+                  <div class="author-role">User since Day 1</div>
+                </div>
+              </div>
+            </div>
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <div class="quote-text">"I made a Momento journal for my husband's 40th. He said it was the <em>best gift he's ever received</em>."</div>
+              <div class="quote-author">
+                <div class="author-avatar">S</div>
+                <div class="author-info">
+                  <div class="author-name">Sarah</div>
+                  <div class="author-role">Premium subscriber</div>
+                </div>
+              </div>
+            </div>
+            <div class="quote-card">
+              <div class="stars">★★★★★</div>
+              <div class="quote-text">"This is <em>what Apple Photos should have been</em>. Smart enough to know what matters."</div>
+              <div class="quote-author">
+                <div class="author-avatar">T</div>
+                <div class="author-info">
+                  <div class="author-name">TechCrunch</div>
+                  <div class="author-role">Featured Review</div>
+                </div>
+              </div>
+            </div>
+  </div>
+  
+            <div class="bottom-stat">
+              <span class="stat-num">4.9★</span>
+              <span class="stat-text">Average rating across 50,000+ reviews. #1 Photo App in 12 countries.</span>
+            </div>
+</body>
+</html>

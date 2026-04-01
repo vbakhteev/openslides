@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #fffbfc 0%, #fdf2f8 100%);
+      color: #1f1f1f;
+      width: 1920px;
+      height: 1080px;
+      padding: 80px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+    }
+    .blob-1 { width: 400px; height: 400px; background: #ec4899; top: -100px; right: 200px; }
+    .blob-2 { width: 300px; height: 300px; background: #a855f7; bottom: 100px; left: -50px; }
+    .main { position: relative; z-index: 1; }
+    .label {
+      display: inline-block;
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 50px;
+    }
+    .stats-grid {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .stat-card {
+      flex: 1;
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
+    }
+    .stat-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+    .stat-change {
+      font-size: 13px;
+      font-weight: 600;
+      color: #999;
+      margin-top: 8px;
+    }
+    .stat-change.positive {
+      color: #22c55e;
+    }
+    .timeline {
+      display: flex;
+      gap: 0;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #fce7f3;
+      transform: translateY(-50%);
+    }
+    .timeline-item {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding-top: 40px;
+    }
+    .timeline-emoji {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fce7f3;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 20px;
+    }
+    .timeline-item.done .timeline-dot {
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+    }
+    .timeline-item.current .timeline-dot {
+      background: #ec4899;
+      box-shadow: 0 0 0 6px rgba(236, 72, 153, 0.3);
+    }
+    .timeline-content {
+      margin-top: 50px;
+    }
+    .timeline-date {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .timeline-item.upcoming .timeline-title {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="main">
+    <div class="label">Growth</div>
+    <h1 class="headline">Viral by design. 2M users in 18 months.</h1>
+    <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-value">2M+</div>
+                        <div class="stat-label">MAU</div>
+                        <div class="stat-change ">Viral growth</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">65%</div>
+                        <div class="stat-label">D30 Retention</div>
+                        <div class="stat-change ">Best in class</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value">2.4</div>
+                        <div class="stat-label">K-Factor</div>
+                        <div class="stat-change ">Viral coefficient</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-value">$0.40</div>
+                        <div class="stat-label">CAC</div>
+                        <div class="stat-change ">85% organic</div>
+                    </div></div>
+    <div class="timeline">
+                    <div class="timeline-item done">
+                        <div class="timeline-emoji">✨</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q2 2023</div>
+                            <div class="timeline-title">App launch, 10K users</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item done">
+                        <div class="timeline-emoji">✨</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q4 2023</div>
+                            <div class="timeline-title">500K users, App Store featured</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item done">
+                        <div class="timeline-emoji">✨</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q2 2024</div>
+                            <div class="timeline-title">1M users, first revenue</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item current">
+                        <div class="timeline-emoji">🔥</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q4 2024</div>
+                            <div class="timeline-title">2M MAU, $3.2M ARR</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item upcoming">
+                        <div class="timeline-emoji">🎯</div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Q2 2025</div>
+                            <div class="timeline-title">Android launch, 5M MAU</div>
+                        </div>
+                    </div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide - Team & Ask</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000000;
+      color: #ffffff;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      padding: 80px 120px;
+    }
+    .left {
+      flex: 1.3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 100px;
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+    .founder-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 32px;
+      border: 4px solid rgba(255,255,255,0.1);
+    }
+    .name {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .title {
+      font-size: 24px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 48px;
+    }
+    .bio-section {
+      margin-bottom: 32px;
+    }
+    .bio-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .bio-items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bio-item {
+      font-size: 20px;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .bio-item .company {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .bio-item .detail {
+      color: rgba(255,255,255,0.4);
+    }
+    .looking-for {
+      margin-top: 48px;
+      padding: 32px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .looking-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+    .looking-text {
+      font-size: 20px;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+    .ask-box {
+      background: #fff;
+      color: #000;
+      padding: 48px;
+      border-radius: 16px;
+      margin-bottom: 32px;
+    }
+    .ask-label {
+      font-size: 14px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .ask-amount {
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .ask-use {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.7;
+    }
+    .ask-use strong {
+      color: #000;
+    }
+    .contact-box {
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+    .contact-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .contact-info {
+      font-size: 20px;
+      color: #ffffff;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="label">Founder</div>
+    
+    <div class="name">Jessica Lee</div>
+    <div class="title">CEO & Founder · Former Product @ Instagram</div>
+    <div class="bio-section">
+      <div class="bio-label">Track record</div>
+      <div class="bio-items">
+        
+        <div class="bio-item">
+          <span class="company">Instagram</span>
+          <span class="detail">Product Lead · Built Stories Highlights (500M+ users)</span>
+        </div>
+
+        <div class="bio-item">
+          <span class="company">Pinterest</span>
+          <span class="detail">Senior PM · Led visual search features</span>
+        </div>
+
+        <div class="bio-item">
+          <span class="company">RISD</span>
+          <span class="detail">BFA Graphic Design · Human-centered design focus</span>
+        </div>
+
+        <div class="bio-item">
+          <span class="company">Co-founder: Tom Chen</span>
+          <span class="detail">Ex-Apple ML · Built on-device photo features</span>
+        </div>
+
+        <div class="bio-item">
+          <span class="company">Community</span>
+          <span class="detail">200K Discord members · Power users drive roadmap</span>
+        </div>
+      </div>
+    </div>
+    
+        <div class="looking-for">
+          <div class="looking-title">Looking for believers</div>
+          <div class="looking-text">Investors who understand consumer, community, and the power of emotional products. Bonus: experience scaling creator/social platforms.</div>
+        </div>
+  </div>
+  <div class="right">
+    <div class="ask-box">
+      <div class="ask-label">The Ask</div>
+      <div class="ask-amount">$4M</div>
+      <div class="ask-use">
+        <strong>12 months runway</strong> to:
+        <br><br>
+        • Launch Android (50% of waitlist)<br>• Build photo book fulfillment<br>• Scale community team<br>• Expand AI capabilities
+      </div>
+    </div>
+    
+        <div class="contact-box">
+          <div class="contact-label">Let's talk</div>
+          <div class="contact-info">jess@momento.app<br>linkedin.com/in/jessicalee</div>
+        </div>
+  </div>
+</body>
+</html>

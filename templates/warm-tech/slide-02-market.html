@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=1920">
+<title>floom - Market</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print { body::before { display: none !important; } * { box-shadow: none !important; } }
+html { height: 1080px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FAFAF7; color: #161512;
+  padding: 64px 80px; display: flex; flex-direction: column;
+  position: relative;
+}
+body::before {
+  content: ''; position: absolute; top: -100px; right: 100px;
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, rgba(251,191,36,0.04) 50%, transparent 70%);
+}
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left svg { width: 28px; height: 28px; }
+.header-left span { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #161512; letter-spacing: -0.5px; }
+.section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C4C1B8; }
+h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; color: #161512; margin-bottom: 32px; flex-shrink: 0; }
+h1 em { color: #059669; font-style: italic; }
+.content { display: flex; gap: 48px; flex: 1; min-height: 0; }
+.left { flex: 0 0 55%; display: flex; flex-direction: column; }
+.right { flex: 0 0 calc(45% - 48px); display: flex; flex-direction: column; gap: 16px; }
+.chart-card {
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  padding: 36px 40px; flex: 1; display: flex; flex-direction: column;
+}
+.chart-card h3 { font-size: 15px; font-weight: 600; color: #A09D94; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+.chart-area { flex: 1; position: relative; }
+.chart-area svg { width: 100%; height: 100%; }
+.chart-legend { display: flex; gap: 24px; margin-top: 16px; }
+.chart-legend span { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #A09D94; }
+.chart-legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+.accent-card {
+  background: #ecfdf5; border: 1px solid #d1fae5; border-radius: 16px; padding: 28px 32px;
+}
+.accent-card .stat { font-family: 'DM Serif Display', serif; font-size: 72px; color: #161512; line-height: 1; }
+.accent-card .stat-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #059669; margin-top: 4px; }
+.accent-card .desc { font-size: 15px; color: #5A5850; line-height: 1.7; margin-top: 12px; }
+.white-card {
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  padding: 28px 32px;
+}
+.white-card .stat { font-family: 'DM Serif Display', serif; font-size: 48px; color: #161512; line-height: 1; }
+.white-card .desc { font-size: 15px; color: #5A5850; line-height: 1.7; margin-top: 8px; }
+.dark-card {
+  background: #fff; border-radius: 16px; padding: 28px 32px; color: #161512; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.comps { display: flex; gap: 24px; }
+.comp { flex: 1; }
+.comp .val { font-family: 'DM Serif Display', serif; font-size: 28px; color: #059669; line-height: 1.2; }
+.comp .name { font-size: 15px; font-weight: 600; color: #161512; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+.comp .name img { width: 16px; height: 16px; border-radius: 3px; }
+.comp .comp-desc { font-size: 14px; color: #A09D94; margin-top: 2px; }
+.sources { position: absolute; bottom: 64px; left: 80px; font-size: 14px; color: #C4C1B8; font-weight: 500; }
+.page-num { position: absolute; bottom: 64px; right: 80px; font-size: 14px; color: #DDDBD4; }
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: url(grain.png) repeat;
+  opacity: 0.2; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><a href="https://floom.dev" target="_blank" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 Q4 6 4 12 L4 36 Q4 42 10 42 L28 42 L44 24 L28 6 Z" fill="#059669"></path></svg>
+    <span>floom</span></a>
+  </div>
+  <span class="section-label">Market</span>
+  <span class="section-label">{{RECIPIENT}}</span>
+</div>
+
+<h1>A $24B Market. <em>No Production Layer</em> Exists Yet.</h1>
+
+<div class="content">
+  <div class="left">
+    <div class="chart-card">
+      <h3>AI-Assisted Developers vs. Deployed Tools</h3>
+      <div class="chart-area">
+        <svg viewBox="0 0 800 380" preserveAspectRatio="xMidYMid meet">
+          <!-- Grid lines -->
+          <line x1="60" y1="20" x2="60" y2="320" stroke="#ECEAE4" stroke-width="1"></line>
+          <line x1="60" y1="320" x2="760" y2="320" stroke="#eee" stroke-width="1"></line>
+          <line x1="60" y1="240" x2="760" y2="240" stroke="#F5F4F0" stroke-width="1"></line>
+          <line x1="60" y1="160" x2="760" y2="160" stroke="#F5F4F0" stroke-width="1"></line>
+          <line x1="60" y1="80" x2="760" y2="80" stroke="#F5F4F0" stroke-width="1"></line>
+          <line x1="60" y1="20" x2="760" y2="20" stroke="#F5F4F0" stroke-width="1"></line>
+          <!-- Y axis labels -->
+          <text x="50" y="324" text-anchor="end" font-family="Plus Jakarta Sans" font-size="13" fill="#999">0</text>
+          <text x="50" y="244" text-anchor="end" font-family="Plus Jakarta Sans" font-size="13" fill="#999">10M</text>
+          <text x="50" y="164" text-anchor="end" font-family="Plus Jakarta Sans" font-size="13" fill="#999">20M</text>
+          <text x="50" y="84" text-anchor="end" font-family="Plus Jakarta Sans" font-size="13" fill="#999">30M</text>
+          <text x="50" y="24" text-anchor="end" font-family="Plus Jakarta Sans" font-size="13" fill="#999">40M</text>
+          <!-- X axis labels -->
+          <text x="85" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2021</text>
+          <text x="185" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2022</text>
+          <text x="285" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2023</text>
+          <text x="385" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2024</text>
+          <text x="485" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2025</text>
+          <text x="585" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2026E</text>
+          <text x="660" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2027E</text>
+          <text x="735" y="345" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" fill="#999">2028E</text>
+          <!-- Green adoption curve -->
+          <path d="M85 312 C135 308, 185 296, 235 280 C285 260, 335 228, 385 200 C435 168, 460 148, 485 128 C535 88, 585 60, 660 40 L735 20" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round"></path>
+          <!-- Area under green line -->
+          <path d="M85 312 C135 308, 185 296, 235 280 C285 260, 335 228, 385 200 C435 168, 460 148, 485 128 C535 88, 585 60, 660 40 L735 20 L735 320 L85 320 Z" fill="url(#greenGrad)" opacity="0.15"></path>
+          <defs>
+            <lineargradient id="greenGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#059669"></stop>
+              <stop offset="100%" stop-color="#059669" stop-opacity="0"></stop>
+            </lineargradient>
+          </defs>
+          <!-- 2025 highlight dot -->
+          <circle cx="485" cy="128" r="6" fill="#059669"></circle>
+          <rect x="440" y="98" width="90" height="26" rx="6" fill="#059669"></rect>
+          <text x="485" y="115" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#fff">16M devs</text>
+          <!-- Red dashed line (deployed tools) -->
+          <line x1="85" y1="314" x2="735" y2="310" stroke="#ef4444" stroke-width="2" stroke-dasharray="8 6" opacity="0.7"></line>
+          <!-- Gap annotation -->
+          <rect x="540" y="168" width="100" height="28" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1"></rect>
+          <text x="590" y="186" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="13" font-weight="700" fill="#ef4444">THE GAP</text>
+          <line x1="590" y1="196" x2="590" y2="310" stroke="#ef4444" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"></line>
+          <line x1="590" y1="168" x2="590" y2="128" stroke="#ef4444" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"></line>
+          <!-- 1M label at 2021 -->
+          <text x="85" y="304" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="11" fill="#059669">1M</text>
+        </svg>
+      </div>
+      <div class="chart-legend">
+        <span><span class="dot" style="background:#059669"></span>AI-assisted developers</span>
+        <span><span class="dot" style="background:#ef4444"></span>Tools deployed to production (&lt;1%)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="accent-card">
+      <div class="stat">$24B</div>
+      <div class="stat-label">TAM</div>
+      <div class="desc">
+        TAM: $24B workflow automation (2025)<br>
+        SAM: 16M devs x $15/mo = $2.9B<br>
+        SOM Y1: 5K devs x $19/mo = $1.1M ARR
+      </div>
+    </div>
+
+    <div class="white-card">
+      <div class="stat">500M+</div>
+      <div class="desc">Knowledge workers who need automation. They can't open a terminal.</div>
+    </div>
+
+    <div class="dark-card">
+      <div style="font-size: 14px;color:#bbb;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">Comparable valuations</div><div class="comps">
+        <div class="comp">
+          <div class="val">$4.5B</div>
+          <div class="name"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAM1BMVEVHcEzsBUj/zN/rADf/xNj/xNj/xNj/xNj/xNn/xNjsAED9rsb3hKH1bY7vK136mbPxS3OmrkIiAAAACnRSTlMA////amv/22YKRbTLigAAAgFJREFUWIW1l227wxAMhold1kVb/f+/9ihlzKNsrpOPa3IvEvIihBDLU/8kz4c45fWjuUe8HGDC3hGEeOAvVAnWWxoOWFafYhsu4P+XQLAPGKBVba+wJgYYBDDjAFq5BvAKz4ABBwIc4wAUglYQIACdoHUGBCAJAZIHPaAN20vegAsAkHLIHO4jRyDKJABEc3Ws1lkYsx4JMQLYvTLvq3tQ2vvsXpLdVfi1D/D27CJenNchfGRrQgkgE9VAuI7TCZam/JQDSG+qfeeIwle1FXTx/q7XkP/GnT3zG/jSh6cAkHahViHUvDfs0xvhM0Hm8sMDrOwkO3mZ7pS7IdJGAOVvB163JLZQJQRoVK7ow55pKgS4d0CT5Q7gJgKB0POgnYILkBUrBOicoCyXEIArZyZZwYYA3H/GAb0Y6rzg/gugewTqxWA6iLNp7DyF/kXqX+XeW+idofuYcP96O4Cfc97Kbl2goqAkwHBJ0zoqlSWtLKqof0UHrhRURdV/TGW9WROutu3aVlXWk0arA2b2rcYSdMzlhKmcoKtr3rU2L/v1N5/NdeWR5vomsNxMZJzhiU2/Ur8bMPbNGid2u0vQ3Ygjw4jD344400NWOkQlSBfOibOD5vyoOz1sT4/70wvH/MrzzdIF1z6q175Gz3qKBXs2vnhOr77zy7dbn39d/53/4g9kqk9kzl07YAAAAABJRU5ErkJggg==" alt="fal.ai">fal.ai</div>
+          <div class="comp-desc">AI inference infra</div>
+        </div>
+        <div class="comp">
+          <div class="val">$2.5B</div>
+          <div class="name"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAFKUlEQVRoge2XfWhVZRzHP79ztjt15pbb7syXylYSUYKLIqxomc62u2lFg9AQ+sekNO+dWy9kcitBQXR3vhQYgSAKRfTCducbqIURKo1UkJxvEGrzng3b2q56d+/59cfO3e6u2xXDNqH7+euc5/k+z/l+z3nO7zwH0qRJkyZNmjRp/r/ISBtIhfr9Ruhw91SMqBYG684NprkjA2hVlWl1T65FeA/IdVrPqkFNYUPg+0StMQL+bkpb9+TNCGvoMw8gRWLLt1a5b0Gi9o4LYFV6i1VY0nsmm2IxnYrqDOBnQFSoP1/iHxXXZwy3QfX7DetI5yIMrUC5/4Z+m0Ln8LeC4IblAgpgzfVWaYZcAPLvGv3XTGA/DHMArfK72o52BBFm99pKyZm4eYD8PYFWy+PrAsbZJuPj7cMawAp3fALMBmwRdqith0WkJ1GjylMIbyjMCpXXTnA3rWsFaKvwVaCMAzBj5sm4ftAqdNnje8BQnYVhCCrNBcH1vw5l6spL3txIjBJs4x4VWgq7xv0oB/3RZJ2W+DOssR0XUdwoH7mb6lYPNV9Pj5wHckEvgWxXGC+wCMgCDriDdbMGDaAl/gwru6MOeIvEF1zZG8mKLJj83Zb2gUGrXwetF/ofKfC7GLqwoCHQnKhtLfc9ZgjHAUw7OiVv16YLQ90Uq8JboiqNQHZSV4tpR19IHDugCrVld64BljrtbcA5J2apK+JqUL+/Tx8q85YJus0x341wCogCD6stu9vLlk1OnNs0ZI5z+Gcq8wAFjYGDYmZOQ1gLug/YLVBj95jFyWP7nkBraY3byIxdADKBzQXdOT456I+GKryvovIVYCDymktdewEiGtmD6BOgh1yMmpcbXHulvWzFIzHTPuAsk3qXZH3cE702ys405ojqFmAsaMAdDPhSBbgV+gJYnup5iv4AXO+wozkP7dp0Pd4X8nj3Qt8dHIjaz7mb6n/q05b7ViJ8OsT1zrjIejI3uPbKbfLfv4Rsw44f2w9ezYsNlA2sFImokdQnQ2tRwtd6opF/4XNI+gIY4joCxIDRoezOVeo8nbYy7yygFEBUligUKRQBJ5y2VZcqF48BaJ9fPQXVt50pv1Qoihk8KogPuIYw3XDFVt7OAAOqkFXu+7z/M04LKh2IFgMmyvGCcM7j8RLpvBtfO3NcBj0NMoPeytGpMCNxBxnyVH8Iulrhj8Jg3X3JRixP9fOqOh9highnjZixLW/X+pPJumQGVKGucI5PkR3O6bTelxQTlaOSkVmWWN/djYFvEN4BwkAhyDOO+YuoXXnD9temyblj94bKayfEm9XvN0Ke6i8V3Y+wHHhFldqYYR+zyqvfvFmAQT9kVqW3WG1jDqqiJs3uhrp9iZ/1Adp5707UWORFgUmqcipqdjdObNgaTtZpld9lhTtagbsF8RUENwQALnu8NYKsc1SHBE4olIIUATFb7acnNNUfvqUA/xUhT/VG0GUKEUE/E+WIiqwDJiGyxd24YSnApcrFYzJi2b8gTFdhZ2Fj3cKh5hzW7XTU6Hpf4YiAC8SrIjuBSQAKX8R1Exu2hlV0O4CoTk8157AGmNiwNewek/OsiKwADiKEcJamOEHi9J/L36nmHPFfylC5bw9CKdAiysL87Jzj1tXOl1HdBoxKtfGDEfihSUZM/UBtmQlMU+GoFe5I7D5tanRjqvEj/ktZ0BBoVmQucCyhWYGgmJklebs2daYaP+JLKI6ChDy+qYbBFFHO5DfWXRxpT2nSpEmTJk2aNHc6/wCXiQVfjqIbLQAAAABJRU5ErkJggg==" alt="n8n">n8n</div>
+          <div class="comp-desc">Workflow automation</div>
+        </div>
+        <div class="comp">
+          <div class="val">$9B</div>
+          <div class="name"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAHlBMVEVHcEz/PAD/PAD/PQD/PAD/PAD/PAD/PAD/PAD/PAC8UwJ5AAAACXRSTlMAsAc9VKOF89VkSvVVAAAAq0lEQVRYhe2Vyw7DIAwEwWAe///DbaqqhOXiTYp6qEdccvBog2wcguPsIdV+Qvn6PhNZgYKgs4L4dYG44B8FSyeygoyCTApkiZBIQ5CUB+1paPGDFotg+sJLreydCP6RJcMECugX5rag/jyBCzYI2GWHq44db8E+MgQoOsb3mMWW08Awixi5vYK8j6G+oIB9kHw7u2CPgKxfW5kV4Pyy2/3IcJpmpXe741zhARR8GY9wN9dvAAAAAElFTkSuQmCC" alt="Replit">Replit</div>
+          <div class="comp-desc">Cloud IDE + deploy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sources">Sources: GitHub Copilot Report 2024, Gartner AI Dev Tools 2025, Crunchbase</div>
+<div class="page-num">02</div>
+
+</body></html>

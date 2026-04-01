@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=1920">
+<title>floom - Business &amp; Moat</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print { body::before { display: none !important; } * { box-shadow: none !important; } }
+html { height: 1080px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FAFAF7; color: #161512;
+  padding: 64px 80px; display: flex; flex-direction: column;
+  position: relative;
+}
+body::before {
+  content: ''; position: absolute; top: -100px; right: 100px;
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, rgba(251,191,36,0.04) 50%, transparent 70%);
+}
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left svg { width: 28px; height: 28px; }
+.header-left span { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #161512; letter-spacing: -0.5px; }
+.section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C4C1B8; }
+h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; color: #161512; margin-bottom: 32px; flex-shrink: 0; }
+h1 em { color: #059669; font-style: italic; }
+
+.top-row { display: flex; gap: 24px; margin-bottom: 24px; flex-shrink: 0; }
+.moat-card {
+  flex: 1; background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  padding: 32px;
+}
+.moat-icon { width: 32px; height: 32px; background: #ecfdf5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.moat-icon svg { width: 16px; height: 16px; }
+.moat-card h3 { font-size: 18px; font-weight: 700; color: #161512; margin-bottom: 10px; }
+.moat-card p { font-size: 15px; color: #5A5850; line-height: 1.6; }
+
+.bottom-row { display: flex; gap: 24px; flex: 1; min-height: 0; }
+
+.pricing-card {
+  flex: 1; border-radius: 16px; padding: 36px;
+  display: flex; flex-direction: column;
+}
+.pricing-free {
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+}
+.pricing-pro {
+  background: #ECFDF5; border: 1px solid #D1FAE5;
+}
+
+.pricing-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.pricing-free .pricing-label { color: #A09D94; }
+.pricing-pro .pricing-label { color: #059669; }
+
+.pricing-price { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1; }
+.pricing-free .pricing-price { color: #161512; }
+.pricing-pro .pricing-price { color: #059669; }
+
+.pricing-sub { font-size: 15px; color: #A09D94; margin-top: 4px; margin-bottom: 20px; }
+
+.pricing-divider { height: 1px; margin-bottom: 20px; }
+.pricing-free .pricing-divider { background: #eee; }
+.pricing-pro .pricing-divider { background: #d1fae5; }
+
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.pricing-features li { display: flex; align-items: center; gap: 12px; font-size: 15px; }
+.pricing-free .pricing-features li { color: #5A5850; }
+.pricing-pro .pricing-features li { color: #161512; }
+.pricing-features li svg { width: 18px; height: 18px; min-width: 18px; }
+
+.pricing-footer { margin-top: auto; padding-top: 20px; font-size: 14px; }
+.pricing-free .pricing-footer { border-top: 1px solid #ECEAE4; color: #C4C1B8; }
+.pricing-pro .pricing-footer { border-top: 1px solid #d1fae5; color: #059669; }
+
+.page-num { position: absolute; bottom: 64px; right: 80px; font-size: 14px; color: #DDDBD4; }
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: url(grain.png) repeat;
+  opacity: 0.2; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><a href="https://floom.dev" target="_blank" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 Q4 6 4 12 L4 36 Q4 42 10 42 L28 42 L44 24 L28 6 Z" fill="#059669"></path></svg>
+    <span>floom</span></a>
+  </div>
+  <span class="section-label">Business &amp; Moat</span>
+  <span class="section-label">{{RECIPIENT}}</span>
+</div>
+
+<h1>Open Protocol for Distribution. <em>Cloud for Revenue.</em></h1>
+
+<div class="top-row">
+  <div class="moat-card">
+    <div class="moat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></div>
+    <h3>Open Protocol = Distribution</h3>
+    <p>Developers adopt the open-source protocol. Every deploy grows the network. AI agents deploy to floom via MCP. Distribution at the infra layer.</p>
+  </div>
+  <div class="moat-card">
+    <div class="moat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+    <h3>Cloud = Revenue</h3>
+    <p>Free tier with permanent links drives adoption. Pro tier ($19/mo) monetizes power users. Always-on hosting, domains, monitoring, teams.</p>
+  </div>
+  <div class="moat-card">
+    <div class="moat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+    <h3>Not a Hosting Platform</h3>
+    <p>Replit, Railway, Render deploy code. You build frontend, API, auth. floom deploys a function and auto-generates everything.</p>
+  </div>
+</div>
+
+<div class="bottom-row">
+  <div class="pricing-card pricing-free">
+    <div class="pricing-label">Free / Open Source</div>
+    <div class="pricing-price">$0</div>
+    <div class="pricing-sub">forever</div>
+    <div class="pricing-divider"></div>
+    <ul class="pricing-features">
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#ccc"></path></svg>Unlimited projects</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#ccc"></path></svg>Shareable links</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#ccc"></path></svg>100 runs / month</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#ccc"></path></svg>Auto-generated UI + API</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#ccc"></path></svg>MCP server</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#ccc"></path></svg>Community support</li>
+    </ul>
+    <div class="pricing-footer">Like Docker: the free tool IS the distribution.</div>
+  </div>
+
+  <div class="pricing-card pricing-pro">
+    <div class="pricing-label">floom Pro</div>
+    <div class="pricing-price">$19/mo</div>
+    <div class="pricing-sub">per user</div>
+    <div class="pricing-divider"></div>
+    <ul class="pricing-features">
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#059669"></path></svg>Everything in Free, plus:</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#059669"></path></svg>Always-on hosting</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#059669"></path></svg>Custom domains + SSL</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#059669"></path></svg>Monitoring + analytics</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#059669"></path></svg>Team collaboration</li>
+      <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill="#059669"></path></svg>Unlimited runs</li>
+    </ul>
+    <div class="pricing-footer">Features that require infrastructure, not code.</div>
+  </div>
+</div>
+
+<div class="page-num">06</div>
+
+</body></html>

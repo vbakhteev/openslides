@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=1920">
+<title>floom - Business &amp; Moat</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print { body::before { display: none !important; } * { box-shadow: none !important; } }
+html { height: 1080px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FAFAF7; color: #161512;
+  padding: 64px 80px; display: flex; flex-direction: column;
+  position: relative;
+}
+body::before {
+  content: ''; position: absolute; top: -100px; right: 100px;
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, rgba(251,191,36,0.04) 50%, transparent 70%);
+}
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left svg { width: 28px; height: 28px; }
+.header-left span { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #161512; letter-spacing: -0.5px; }
+.section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C4C1B8; }
+h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; color: #161512; margin-bottom: 32px; flex-shrink: 0; }
+h1 em { color: #059669; font-style: italic; }
+
+.top-row { display: flex; gap: 24px; margin-bottom: 24px; flex-shrink: 0; }
+.moat-card {
+  flex: 1; background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  padding: 32px;
+}
+.moat-icon { width: 32px; height: 32px; background: #ecfdf5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.moat-icon svg { width: 16px; height: 16px; }
+.moat-card h3 { font-size: 18px; font-weight: 700; color: #161512; margin-bottom: 10px; }
+.moat-card p { font-size: 15px; color: #5A5850; line-height: 1.6; }
+
+.bottom-row { display: flex; gap: 24px; flex: 1; min-height: 0; }
+
+.pricing-card {
+  flex: 1; border-radius: 16px; padding: 36px;
+  display: flex; flex-direction: column;
+}
+.pricing-free {
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+}
+.pricing-pro {
+  background: #ecfdf5; border: 1px solid #d1fae5;
+}
+
+.pricing-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.pricing-free .pricing-label { color: #A09D94; }
+.pricing-pro .pricing-label { color: #059669; }
+
+.pricing-price { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1; }
+.pricing-free .pricing-price { color: #161512; }
+.pricing-pro .pricing-price { color: #059669; }
+
+.pricing-sub { font-size: 15px; color: #A09D94; margin-top: 4px; margin-bottom: 20px; }
+
+.pricing-divider { height: 1px; margin-bottom: 20px; }
+.pricing-free .pricing-divider { background: #eee; }
+.pricing-pro .pricing-divider { background: #d1fae5; }
+
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.pricing-features li { display: flex; align-items: center; gap: 12px; font-size: 15px; }
+.pricing-free .pricing-features li { color: #5A5850; }
+.pricing-pro .pricing-features li { color: #161512; }
+.pricing-features li svg { width: 18px; height: 18px; min-width: 18px; }
+
+.pricing-footer { margin-top: auto; padding-top: 20px; font-size: 14px; }
+.pricing-free .pricing-footer { border-top: 1px solid #ECEAE4; color: #C4C1B8; }
+.pricing-pro .pricing-footer { border-top: 1px solid #d1fae5; color: #059669; }
+
+.page-num { position: absolute; bottom: 64px; right: 80px; font-size: 14px; color: #DDDBD4; }
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: url(grain.png) repeat;
+  opacity: 0.2; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><a href="https://floom.dev" target="_blank" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 Q4 6 4 12 L4 36 Q4 42 10 42 L28 42 L44 24 L28 6 Z" fill="#059669"></path></svg>
+    <span>floom</span></a>
+  </div>
+  <span class="section-label">Go-to-Market</span>
+  <span class="section-label">{{RECIPIENT}}</span>
+</div>
+
+<h1>Agents First. <em>Humans Follow.</em></h1>
+
+<div style="display:flex;gap:32px;flex:1;min-height:0;">
+  
+  <!-- Left column: Phase 1 + Phase 2 equal height -->
+  <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+    <div style="flex:1;background:#fff;border-radius:20px;box-shadow:0 8px 60px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.04);padding:44px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <div style="width:32px;height:32px;border-radius:8px;background:#ecfdf5;display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#059669" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0"/></svg>
+        </div>
+        <div style="font-size: 14px;color:#999;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Phase 1: Agent Distribution</div>
+      </div>
+      <div style="font-family:'DM Serif Display',serif;font-size:36px;color:#161512;line-height:1.1;margin-bottom:16px;">Open source the protocol.<br><span style="color:#059669;">Agents deploy natively.</span></div>
+      <div style="font-size:16px;color:#666;line-height:1.7;">AI agents (Claude Code, Cursor, Copilot) deploy to floom via MCP. Every agent that ships code becomes a distribution channel. Humans don't need to know floom exists.</div>
+    </div>
+    
+    <div style="display:flex;align-items:center;justify-content:center;padding:4px 0;"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#059669" stroke-width="1.5" opacity="0.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"/></svg></div>
+    
+    <div style="flex:1;background:#fff;border-radius:20px;box-shadow:0 8px 60px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.04);padding:44px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <div style="width:32px;height:32px;border-radius:8px;background:#ecfdf5;display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#059669" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772"/></svg>
+        </div>
+        <div style="font-size: 14px;color:#999;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Phase 2: Developer Adoption</div>
+      </div>
+      <div style="font-family:'DM Serif Display',serif;font-size:36px;color:#161512;line-height:1.1;margin-bottom:16px;">Cursor playbook.<br><span style="color:#059669;">Content, community, WOM.</span></div>
+      <div style="font-size:16px;color:#666;line-height:1.7;">Vibecoders discover floom when their agents already use it. Convert free users to Pro (<strong style="color:#059669;">$19/mo</strong>) with always-on hosting and monitoring.</div>
+    </div>
+  </div>
+  
+  <!-- Right column: Playbook + Stats -->
+  <div style="flex:0 0 42%;display:flex;flex-direction:column;gap:12px;">
+    <div style="background:#ecfdf5;border:1px solid #d1fae5;border-radius:20px;padding:40px;flex:1;">
+      <div style="font-size:14px;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:20px;">The Playbook</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#161512;margin-bottom:4px;">Docker proved it</div>
+          <div style="font-size:15px;color:#666;line-height:1.5;">Open-source infra tools win. The free tool IS the distribution.</div>
+        </div>
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#161512;margin-bottom:4px;">MCP proved it</div>
+          <div style="font-size:15px;color:#666;line-height:1.5;">Agents adopt protocols natively. No sales team needed.</div>
+        </div>
+        <div>
+          <div style="font-size:17px;font-weight:700;color:#161512;margin-bottom:4px;">floom combines both</div>
+          <div style="font-size:15px;color:#666;line-height:1.5;">Open protocol that agents adopt, backed by a cloud that monetizes.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="display:flex;gap:16px;">
+      <div style="flex:1;background:#fff;border-radius:16px;padding:28px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <div style="font-family:'DM Serif Display',serif;font-size:40px;color:#059669;line-height:1;">16M</div>
+        <div style="font-size: 14px;color:#666;margin-top:6px;">AI-assisted devs</div>
+      </div>
+      <div style="flex:1;background:#fff;border-radius:16px;padding:28px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <div style="font-family:'DM Serif Display',serif;font-size:40px;color:#059669;line-height:1;">&lt;1%</div>
+        <div style="font-size: 14px;color:#666;margin-top:6px;">deploy to prod</div>
+      </div>
+      <div style="flex:1;background:#fff;border-radius:16px;padding:28px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <div style="font-family:'DM Serif Display',serif;font-size:40px;color:#059669;line-height:1;">0</div>
+        <div style="font-size: 14px;color:#666;margin-top:6px;">agent-native tools</div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="page-num">08</div>
+</body></html>

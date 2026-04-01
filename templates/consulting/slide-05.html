@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a2744;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 100px;
+    }
+    .top-bar {
+      height: 6px;
+      background: #1a2744;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a2744;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 24px;
+      padding-left: 16px;
+      border-left: 3px solid #1a2744;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 1.15;
+      color: #1a2744;
+      margin-bottom: 60px;
+    }
+    .columns {
+      display: flex;
+      gap: 60px;
+      flex: 1;
+    }
+    .column {
+      flex: 1;
+      background: #f8f9fb;
+      padding: 40px;
+      border-radius: 4px;
+      border-top: 3px solid #1a2744;
+    }
+    .column-content {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #3d5a80;
+    }
+    .column-content strong {
+      color: #1a2744;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <div class="label">Analysis</div>
+  <h1 class="headline">Current state vs. target state</h1>
+  <div class="columns">
+    <div class="column"><div class="column-content">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #1a2744; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Current State</h3>
+                    <div style="border: 2px solid #d1d9e6; padding: 24px; border-radius: 8px;">
+                        <ul style="font-size: 17px; line-height: 2.2; color: #3d5a80;">
+                            <li>Siloed data systems</li>
+                            <li>Manual processes (70%)</li>
+                            <li>Legacy technology stack</li>
+                            <li>Channel-specific customer view</li>
+                            <li>12-week release cycles</li>
+                        </ul>
+                    </div>
+                </div></div>
+    <div class="column"><div class="column-content">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #1a2744; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Target State (2027)</h3>
+                    <div style="border: 2px solid #4a90d9; padding: 24px; border-radius: 8px; background: #f0f7ff;">
+                        <ul style="font-size: 17px; line-height: 2.2; color: #1a2744;">
+                            <li>Unified data platform</li>
+                            <li>80% automated processes</li>
+                            <li>Cloud-native architecture</li>
+                            <li>360° customer view</li>
+                            <li>Continuous deployment</li>
+                        </ul>
+                    </div>
+                </div></div>
+  </div>
+</body>
+</html>

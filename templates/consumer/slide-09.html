@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #fffbfc 0%, #fdf2f8 100%);
+      color: #1f1f1f;
+      width: 1920px;
+      height: 1080px;
+      padding: 80px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+    }
+    .blob-1 { width: 400px; height: 400px; background: #ec4899; top: -100px; right: 200px; }
+    .blob-2 { width: 300px; height: 300px; background: #a855f7; bottom: 100px; left: -50px; }
+    .main { position: relative; z-index: 1; }
+    .label {
+      display: inline-block;
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .headline {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .subheadline {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    .content {
+      display: flex;
+      gap: 50px;
+    }
+    .left {
+      flex: 1.2;
+    }
+    .fund-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .fund-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(236, 72, 153, 0.1);
+    }
+    .fund-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .fund-info {
+      flex: 1;
+    }
+    .fund-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .fund-amt {
+      font-size: 14px;
+      color: #666;
+    }
+    .fund-pct {
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fund-bar {
+      width: 150px;
+      height: 8px;
+      background: #fce7f3;
+      border-radius: 4px;
+    }
+    .fund-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+    .right {
+      flex: 0.8;
+      background: white;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
+    }
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ec4899;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .milestones {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .milestone {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .milestone-emoji {
+      font-size: 24px;
+    }
+    .milestone-time {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 4px;
+    }
+    .milestone-text {
+      font-size: 15px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="main">
+    <div class="label">The Ask</div>
+    <h1 class="headline">$4M to reach 10M users</h1>
+    <p class="subheadline">18-month runway to Series A metrics</p>
+    <div class="content">
+      <div class="left">
+        <div class="fund-cards">
+                <div class="fund-card">
+                    <div class="fund-icon" style="background: #ec4899;">💰</div>
+                    <div class="fund-info">
+                        <div class="fund-name">Product & Engineering</div>
+                        <div class="fund-amt">$1.8M</div>
+                    </div>
+                    <div class="fund-pct">45%</div>
+                    <div class="fund-bar">
+                        <div class="fund-fill" style="width: 45%; background: #ec4899;"></div>
+                    </div>
+                </div>
+                <div class="fund-card">
+                    <div class="fund-icon" style="background: #a855f7;">💰</div>
+                    <div class="fund-info">
+                        <div class="fund-name">Growth & Marketing</div>
+                        <div class="fund-amt">$1.2M</div>
+                    </div>
+                    <div class="fund-pct">30%</div>
+                    <div class="fund-bar">
+                        <div class="fund-fill" style="width: 30%; background: #a855f7;"></div>
+                    </div>
+                </div>
+                <div class="fund-card">
+                    <div class="fund-icon" style="background: #8b5cf6;">💰</div>
+                    <div class="fund-info">
+                        <div class="fund-name">Content & Community</div>
+                        <div class="fund-amt">$600K</div>
+                    </div>
+                    <div class="fund-pct">15%</div>
+                    <div class="fund-bar">
+                        <div class="fund-fill" style="width: 15%; background: #8b5cf6;"></div>
+                    </div>
+                </div>
+                <div class="fund-card">
+                    <div class="fund-icon" style="background: #6366f1;">💰</div>
+                    <div class="fund-info">
+                        <div class="fund-name">Operations</div>
+                        <div class="fund-amt">$400K</div>
+                    </div>
+                    <div class="fund-pct">10%</div>
+                    <div class="fund-bar">
+                        <div class="fund-fill" style="width: 10%; background: #6366f1;"></div>
+                    </div>
+                </div></div>
+      </div>
+      <div class="right">
+        <div class="timeline-title">Roadmap</div>
+        <div class="milestones">
+                <div class="milestone">
+                    <div class="milestone-emoji">🚀</div>
+                    <div class="milestone-content">
+                        <div class="milestone-time">Q3 2025</div>
+                        <div class="milestone-text">Launch Android, 3M MAU</div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-emoji">📈</div>
+                    <div class="milestone-content">
+                        <div class="milestone-time">Q4 2025</div>
+                        <div class="milestone-text">Photo book feature, $5M ARR</div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-emoji">💪</div>
+                    <div class="milestone-content">
+                        <div class="milestone-time">Q2 2026</div>
+                        <div class="milestone-text">10M MAU, international launch</div>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-emoji">🎯</div>
+                    <div class="milestone-content">
+                        <div class="milestone-time">Q4 2026</div>
+                        <div class="milestone-text">$15M ARR, Series A ready</div>
+                    </div>
+                </div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

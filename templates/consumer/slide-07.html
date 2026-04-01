@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide - Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #fffbfc;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 120px;
+    }
+    .slide-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #7a7a7a;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+    }
+    .headline {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #1f1f1f;
+      margin-bottom: 60px;
+    }
+    .market-row {
+      display: flex;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .market-box {
+      flex: 1;
+      padding: 40px;
+      border-radius: 12px;
+    }
+    .market-box.tam {
+      background: #f5f5f5;
+    }
+    .market-box.sam {
+      background: #e8e8e8;
+    }
+    .market-box.som {
+      background: #000;
+      color: #fff;
+    }
+    .market-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+    .market-number {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .market-desc {
+      font-size: 20px;
+      line-height: 1.5;
+      opacity: 0.8;
+    }
+    .market-box.som .market-label,
+    .market-box.som .market-desc {
+      color: rgba(255,255,255,0.7);
+    }
+    .segments {
+      display: flex;
+      gap: 40px;
+      flex: 1;
+    }
+    .segment {
+      flex: 1;
+      padding: 32px;
+      background: #fdf2f8;
+      border-radius: 12px;
+    }
+    .segment-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f1f1f;
+      margin-bottom: 16px;
+    }
+    .segment-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .segment-list li {
+      font-size: 18px;
+      color: #4a4a4a;
+      padding-left: 20px;
+      position: relative;
+    }
+    .segment-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #7a7a7a;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-label">Market</div>
+  <h1 class="headline">Photos are a $100B industry we can own.</h1>
+  <div class="market-row">
+    <div class="market-box tam">
+      <div class="market-label">TAM</div>
+      <div class="market-number">$100B</div>
+      <div class="market-desc">Global photo services market (storage, printing, sharing)</div>
+    </div>
+    <div class="market-box sam">
+      <div class="market-label">SAM</div>
+      <div class="market-number">$25B</div>
+      <div class="market-desc">Photo organization and memory preservation</div>
+    </div>
+    <div class="market-box som">
+      <div class="market-label">SOM (Year 1)</div>
+      <div class="market-number">$2B</div>
+      <div class="market-desc">Premium photo journal and memory apps</div>
+    </div>
+  </div>
+  <div class="segments">
+            <div class="segment">
+              <div class="segment-title">Core users</div>
+              <ul class="segment-list">
+                <li>Parents (documenting kids)</li><li>Couples (relationship milestones)</li><li>Travelers (trip memories)</li><li>Memory keepers (family historians)</li>
+              </ul>
+            </div>
+
+            <div class="segment">
+              <div class="segment-title">Revenue streams</div>
+              <ul class="segment-list">
+                <li>Premium subscription: $9.99/mo</li><li>Photo books: $40 avg order</li><li>Gift subscriptions: $99/year</li><li>Family plans: $14.99/mo</li>
+              </ul>
+            </div>
+
+            <div class="segment">
+              <div class="segment-title">Why we win</div>
+              <ul class="segment-list">
+                <li>Network effects (shared journals)</li><li>Emotional switching costs</li><li>AI moat (training on memories)</li><li>Physical product margin (books)</li>
+              </ul>
+            </div></div>
+</body>
+</html>

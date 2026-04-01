@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+
+<meta name="viewport" content="width=1920">
+<title>floom - Problem</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print { body::before { display: none !important; } * { box-shadow: none !important; } }
+html { height: 1080px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FAFAF7; color: #161512;
+  padding: 64px 80px; display: flex; flex-direction: column;
+  position: relative;
+}
+body::before {
+  content: ''; position: absolute; top: -100px; right: 100px;
+  width: 700px; height: 700px; pointer-events: none;
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, rgba(251,191,36,0.04) 50%, transparent 70%);
+}
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left svg { width: 28px; height: 28px; }
+.header-left span { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: #161512; letter-spacing: -0.5px; }
+.section-label { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #C4C1B8; }
+h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; color: #161512; margin-bottom: 32px; flex-shrink: 0; }
+h1 em { color: #059669; font-style: italic; }
+.content { display: flex; gap: 48px; flex: 1; min-height: 0; }
+.left { flex: 0 0 40%; display: flex; flex-direction: column; }
+.right { flex: 0 0 calc(60% - 48px); display: flex; flex-direction: column; gap: 16px; }
+
+.quote-card {
+  background: #064E3B; border-radius: 16px; padding: 40px;
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+}
+.quote-mark { font-family: 'DM Serif Display', serif; font-size: 48px; color: #059669; line-height: 1; margin-bottom: 8px; }
+.quote-contrast {
+  display: flex; gap: 24px; margin-bottom: 24px;
+}
+.contrast-block { flex: 1; }
+.contrast-num { font-family: 'DM Serif Display', serif; font-size: 48px; line-height: 1; margin-bottom: 4px; }
+.contrast-num.green { color: #34d399; }
+.contrast-num.red { color: #ef4444; }
+.contrast-label { font-size: 14px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; }
+.quote-text { font-size: 22px; color: rgba(255,255,255,0.7); font-weight: 400; line-height: 1.5; }
+.quote-attr { font-size: 14px; color: #5A5850; margin-top: 20px; }
+
+.problem-card {
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  padding: 32px 36px;
+  display: flex; align-items: center; gap: 24px;
+  flex: 1;
+}
+.problem-icon {
+  width: 48px; height: 48px; min-width: 48px;
+  background: #fef2f2; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.problem-icon svg { width: 24px; height: 24px; }
+.problem-body { flex: 1; }
+.problem-title { font-size: 20px; font-weight: 700; color: #161512; margin-bottom: 6px; }
+.problem-desc { font-size: 15px; color: #5A5850; line-height: 1.6; }
+.problem-stat { text-align: right; min-width: 100px; }
+.problem-stat .num { font-size: 36px; font-weight: 700; color: #ef4444; line-height: 1; }
+.problem-stat .label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: #A09D94; margin-top: 4px; }
+
+.page-num { position: absolute; bottom: 64px; right: 80px; font-size: 14px; color: #DDDBD4; }
+body::after {
+  content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: url(grain.png) repeat;
+  opacity: 0.2; mix-blend-mode: overlay; pointer-events: none; z-index: 9999;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><a href="https://floom.dev" target="_blank" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg"><path d="M10 6 Q4 6 4 12 L4 36 Q4 42 10 42 L28 42 L44 24 L28 6 Z" fill="#059669"></path></svg>
+    <span>floom</span></a>
+  </div>
+  <span class="section-label">Problem</span>
+  <span class="section-label">{{RECIPIENT}}</span>
+</div>
+
+<h1>Millions of Useful Tools Get Built Every Day. <em>They Die on Localhost.</em></h1>
+
+<div class="content">
+  <div class="left">
+    <div class="quote-card">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="quote-contrast">
+        <div class="contrast-block">
+          <div class="contrast-num green">2 hrs</div>
+          <div class="contrast-label">to build</div>
+        </div>
+        <div class="contrast-block">
+          <div class="contrast-num red">3 days</div>
+          <div class="contrast-label">to deploy</div>
+        </div>
+      </div>
+      <div class="quote-text">Built it in 2 hours. Spent 3 days trying to deploy it. Gave up. Shared the GitHub link.</div>
+      <div class="quote-attr">r/SideProject, 2025</div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="problem-card">
+      <div class="problem-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 10h-4V6"></path><path d="M14 10l7.7-7.7"></path><path d="M20 4v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4"></path><path d="M2 17h20v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3z"></path>
+        </svg>
+      </div>
+      <div class="problem-body">
+        <div class="problem-title">Can't Deploy</div>
+        <div class="problem-desc">Docker, DNS, SSL, CI/CD. Most give up before the first user sees it.</div>
+      </div>
+      <div class="problem-stat">
+        <div class="num">3-7 days</div>
+        <div class="label">to go live</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="problem-body">
+        <div class="problem-title">Can't Share</div>
+        <div class="problem-desc">Your script works in the terminal. Your client can't open a terminal. No UI, no users.</div>
+      </div>
+      <div class="problem-stat">
+        <div class="num">2-3 wks</div>
+        <div class="label">to build a UI</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <div class="problem-body">
+        <div class="problem-title">Can't Monetize</div>
+        <div class="problem-desc">No app store for scripts. No payment flow. The tool dies as a GitHub link.</div>
+      </div>
+      <div class="problem-stat">
+        <div class="num">$0</div>
+        <div class="label">revenue</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-num">03</div>
+
+</body></html>
