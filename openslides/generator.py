@@ -156,7 +156,8 @@ class DeckGenerator:
             theme: theme to use (defaults to LightTheme)
         """
         theme = theme or LightTheme()
-        return self._render_modern(config, theme)
+        from .assembler import assemble_deck
+        return assemble_deck(config, theme)
 
     def _render_modern(self, config: dict, theme: Theme) -> list[str]:
         """Render using modern templates, fall back to v1 for unsupported types."""
