@@ -293,10 +293,13 @@ def _build_slide_prompt(
 4. Use the theme colors and fonts from the tokens above.
 5. Include @page {{ size: 1920px 1080px; margin: 0; }} in CSS.
 6. Fill the ENTIRE slide. No dead space. Use the full 1920x1080 canvas.
-7. If logo URLs are provided, embed them as <img src="URL"> with proper sizing.
+7. If logo URLs are provided, embed them as <img src="URL"> with proper sizing (24-48px height).
 8. Headlines max 10 words, with key phrase in italic + accent color.
-9. Every card/element should have specific numbers, not vague claims.
-10. Return ONLY the HTML. No markdown fences. No commentary."""
+9. ONLY use numbers and stats that are in the brief or can be reasonably inferred. Do NOT invent fake metrics.
+10. For team slides: use text-based layouts (name, role, credentials, badges). Do NOT generate or reference avatar images, illustrations, or placeholder photos. Use initials in styled circles if you need a visual anchor.
+11. Every slide must use the full 1080px height. If content is short, increase padding, use larger fonts, or add supporting visual elements.
+12. Use inline SVG icons from Lucide (24x24 viewBox, stroke-based) for visual richness. Do not reference external icon CDNs.
+13. Return ONLY the HTML. No markdown fences. No commentary."""
 
 
 # =============================================================================
