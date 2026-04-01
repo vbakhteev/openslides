@@ -83,9 +83,13 @@ def render_deck(
     # Load templates for the style
     templates = _load_templates(style)
 
-    # Step 1: Generate outline
-    default_types = ["title", "problem", "solution", "market", "competition", "traction", "funds", "team_ask"]
-    types = slide_types or default_types
+    # Step 1: Pick slide sequence based on style
+    default_sequences = {
+        "warm-tech": ["title", "problem", "solution", "market", "competition", "traction", "funds", "team_ask"],
+        "consulting": ["title", "situation", "methodology", "case_study", "market", "team_credentials", "implementation", "investment"],
+        "consumer": ["title", "problem", "solution", "social_proof", "market", "traction", "business_model", "team_ask"],
+    }
+    types = slide_types or default_sequences.get(style, default_sequences["warm-tech"])
 
     outline = _generate_outline(client, model, brief, audience, types)
 
@@ -181,20 +185,36 @@ def _generate_outline(client, model: str, brief: str, audience: str, slide_types
     """Step 1: Generate deck outline with key messages per slide."""
     from google.genai.types import GenerateContentConfig
 
-    prompt = f"""You are a pitch deck strategist. Given this brief, generate a slide-by-slide outline.
+    # Consulting slide type descriptions
+    type_descriptions = {
+        "situation": "Current state analysis: what's happening in the market/client's world",
+        "methodology": "Your approach: numbered steps, framework, process",
+        "case_study": "Client success story with specific ROI metrics",
+        "team_credentials": "Team qualifications, notable alumni, relevant experience",
+        "implementation": "Timeline, phases, deliverables, milestones",
+        "investment": "Engagement terms, pricing, expected ROI",
+        "social_proof": "Testimonials, ratings, community metrics, press mentions",
+        "business_model": "Revenue model, pricing tiers, unit economics",
+    }
+    type_hints = "\n".join(f"- {t}: {type_descriptions.get(t, t)}" for t in slide_types)
+
+    prompt = f"""You are a presentation strategist. Given this brief, generate a slide-by-slide outline.
 
 Brief: {brief}
 Audience: {audience}
-Slides needed: {', '.join(slide_types)}
+Slides needed (in order):
+{type_hints}
 
 For each slide, provide:
-- type: the slide type
+- type: the slide type (exactly as listed above)
 - message: the ONE key message for this slide (a punchy headline, max 10 words)
+
+The message should be specific to the company, not generic. Use real numbers from the brief.
 
 Return a JSON array. Example:
 [
-  {{"type": "title", "message": "The Production Layer for AI Scripts"}},
-  {{"type": "problem", "message": "Scripts die on localhost. 99% never reach a user."}},
+  {{"type": "title", "message": "Eliminating $562B in Retail Food Waste"}},
+  {{"type": "situation", "message": "Mid-market retailers hemorrhaging margin to spoilage."}},
   ...
 ]
 
@@ -268,11 +288,33 @@ def _build_slide_prompt(
 - Body font: {theme.body_font_family}
 - Google Fonts: {theme.google_fonts_url}"""
 
-    return f"""You are a pitch deck designer. Generate slide {slide_number} of {total_slides}.
+    # Style-specific instructions
+    style_instructions = ""
+    if any(t in slide_type for t in ["situation", "methodology", "case_study", "team_credentials", "implementation", "investment"]):
+        style_instructions = """
+## Consulting Deck Style
+This is a CONSULTING deck, NOT a startup pitch deck. Key differences:
+- Use structured data tables, frameworks, and process diagrams
+- Takeaway bar at top of content: one bold sentence summarizing the slide's conclusion
+- No app mockups, no code blocks, no product screenshots
+- Use numbered process steps (01, 02, 03) for methodology
+- Client case studies show ROI metrics and implementation details
+- Conservative serif headlines, data-dense layouts
+- Bottom of every slide: source citation or exhibit label"""
+    elif any(t in slide_type for t in ["social_proof", "business_model"]):
+        style_instructions = """
+## Consumer/DTC Deck Style
+- Emphasize social proof: user testimonials, ratings, community metrics
+- Use emotional language and lifestyle-oriented visuals
+- Product screenshots or lifestyle imagery as visual anchors
+- Bright accent colors, playful but professional"""
+
+    return f"""You are a presentation designer. Generate slide {slide_number} of {total_slides}.
 
 ## Slide Type: {slide_type}
 ## Key Message: {key_message}
 ## Company: {company}
+{style_instructions}
 
 ## Reference Template (match this visual quality and layout structure)
 ```html
@@ -288,11 +330,11 @@ def _build_slide_prompt(
 
 ## Rules
 1. Generate a COMPLETE self-contained HTML file (1920x1080px).
-2. Match the reference template's visual quality: split layouts, dark accent cards, stat numbers, icons, proper spacing.
+2. Match the reference template's visual quality. Adapt the LAYOUT for this slide type (not every slide should use the same split pattern).
 3. Adapt ALL content for the company and slide type. Do NOT copy the reference content.
 4. Use the theme colors and fonts from the tokens above.
-5. Include @page {{ size: 1920px 1080px; margin: 0; }} in CSS.
-6. Fill the ENTIRE slide. No dead space. Use the full 1920x1080 canvas.
+5. CSS MUST include: @page {{ size: 1920px 1080px; margin: 0; }} and body must use display:flex; flex-direction:column; with the main content area using flex:1 to fill ALL vertical space. NO bottom margin gap.
+6. Fill the ENTIRE 1920x1080 canvas. The content must reach the bottom. If content is short, use larger elements, more padding inside cards, or add a footer bar.
 7. If logo URLs are provided, embed them as <img src="URL"> with proper sizing (24-48px height).
 8. Headlines max 10 words, with key phrase in italic + accent color.
 9. ONLY use numbers and stats that are in the brief or can be reasonably inferred. Do NOT invent fake metrics.
@@ -308,11 +350,15 @@ def _build_slide_prompt(
 
 def _detect_style(brief: str) -> str:
     """Auto-detect the best template style from the brief."""
+    import re
     lower = brief.lower()
-    for keyword, style in STYLE_ROUTES.items():
-        if keyword in lower:
+    # Check longer keywords first (more specific matches)
+    sorted_routes = sorted(STYLE_ROUTES.items(), key=lambda x: -len(x[0]))
+    for keyword, style in sorted_routes:
+        # Word boundary match to avoid "ai" matching in "retailers"
+        if re.search(r'\b' + re.escape(keyword) + r'\b', lower):
             return style
-    return "warm-tech"  # default
+    return "warm-tech"
 
 
 # =============================================================================
@@ -332,21 +378,35 @@ def _load_templates(style: str) -> dict[str, str]:
 
 
 def _find_best_template(templates: dict[str, str], slide_type: str) -> str:
-    """Find the best matching template for a slide type."""
+    """Find the best matching template for a slide type.
+    Handles both naming conventions:
+    - warm-tech: slide-03-problem, slide-04-solution
+    - consulting/consumer: slide-01, slide-02, ..., slide-10
+    """
+    # Map slide types to candidate template names (both conventions)
     type_map = {
+        # Pitch deck types
         "title": ["slide-01-title", "slide-01"],
-        "market": ["slide-02-market", "slide-02"],
-        "problem": ["slide-03-problem", "slide-03", "slide-02"],
-        "solution": ["slide-04-solution", "slide-04", "slide-03"],
-        "business": ["slide-06-business", "slide-05"],
-        "competition": ["slide-07-competition", "slide-06", "slide-04"],
-        "traction": ["slide-07-traction", "slide-07", "slide-05"],
+        "problem": ["slide-03-problem", "slide-02", "slide-03"],
+        "solution": ["slide-04-solution", "slide-03", "slide-04"],
+        "market": ["slide-02-market", "slide-04", "slide-05"],
+        "competition": ["slide-07-competition", "slide-04", "slide-06"],
+        "traction": ["slide-07-traction", "slide-05", "slide-07"],
+        "funds": ["slide-09-ask", "slide-07", "slide-10"],
+        "team_ask": ["slide-08-team", "slide-10", "slide-09"],
+        "business": ["slide-06-business", "slide-05", "slide-06"],
         "gtm": ["slide-08-gtm", "slide-06"],
-        "team": ["slide-08-team", "slide-09", "slide-08"],
-        "team_ask": ["slide-08-team", "slide-09", "slide-10"],
-        "ask": ["slide-09-ask", "slide-10", "slide-08"],
-        "funds": ["slide-09-ask", "slide-10", "slide-07"],
         "closing": ["slide-12-closing", "slide-10"],
+        # Consulting-specific types (map to consulting template positions)
+        "situation": ["slide-02", "slide-03-problem", "slide-03"],
+        "methodology": ["slide-03", "slide-04-solution", "slide-04"],
+        "case_study": ["slide-05", "slide-04", "slide-07-traction"],
+        "team_credentials": ["slide-09", "slide-08-team", "slide-10"],
+        "implementation": ["slide-06", "slide-07", "slide-08-gtm"],
+        "investment": ["slide-07", "slide-09-ask", "slide-10"],
+        # Consumer-specific types
+        "social_proof": ["slide-03", "slide-05", "slide-07-traction"],
+        "business_model": ["slide-06", "slide-05", "slide-06-business"],
     }
 
     candidates = type_map.get(slide_type, [])
@@ -354,8 +414,14 @@ def _find_best_template(templates: dict[str, str], slide_type: str) -> str:
         if key in templates:
             return templates[key]
 
-    # Fallback: first template
-    return next(iter(templates.values()), "")
+    # Fallback: try to match by position (slide-N where N = slide index)
+    keys = sorted(templates.keys())
+    if keys:
+        # Return a middle template (likely content-heavy, good reference)
+        mid = len(keys) // 3
+        return templates[keys[mid]]
+
+    return ""
 
 
 # =============================================================================
