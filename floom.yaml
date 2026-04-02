@@ -14,16 +14,19 @@ endpoints:
       properties:
         prompt:
           type: string
-          description: What the deck is about (e.g. "Raising $200K pre-seed for AI deploy platform")
+          description: What the deck is about
+          example: "floom is the production layer for AI scripts. Vibecoders paste Python from ChatGPT, floom deploys it as a live app with UI, API, and MCP. Solo founder, scaled previous company to $600K ARR. Raising $200K Friends & Family at $8M cap."
         company_url:
           type: string
-          description: Company website to scrape brand from (e.g. "https://floom.dev")
+          description: Company website to scrape brand from
+          example: "https://floom.dev"
         design_system_url:
           type: string
           description: Explicit design system JSON URL
         recipient:
           type: string
           description: Name for title slide personalization
+          example: "John Smith"
         deck_type:
           type: string
           enum: [pitch, sales, update, general]
