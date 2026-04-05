@@ -1,1 +1,11 @@
 __pycache__/
+*.pyc
+.env
+.env.*
+.venv/
+.openslides/
+dist/
+build/
+*.egg-info/
+WORKPLAN*.md
+ROLE-MODEL-ANALYSIS.md

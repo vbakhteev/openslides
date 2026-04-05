@@ -11,7 +11,8 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-os.environ.setdefault("GEMINI_API_KEY", "REDACTED_GEMINI_KEY")
+if not os.environ.get("GEMINI_API_KEY"):
+    print("Set GEMINI_API_KEY env var first"); sys.exit(1)
 
 from test_prompts import TEST_PROMPTS
 from openslides.renderer import render_deck
