@@ -164,7 +164,7 @@ def stat_row(items: list[dict], theme: Theme) -> str:
 
 
 def blocker_card(icon_name: str, title: str, desc: str, stat_value: str, stat_label: str, theme: Theme) -> str:
-    """Problem/blocker card with icon, text, AND a stat on the right. The floom pattern."""
+    """Problem/blocker card with icon, text, AND a stat on the right."""
     icon = get_icon_svg(icon_name, theme.text_muted, 24)
     stat = ""
     if stat_value:

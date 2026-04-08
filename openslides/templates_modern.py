@@ -1,6 +1,6 @@
 """
 Modern slide templates.
-High-quality HTML renderers inspired by the floom pitch deck design system.
+High-quality HTML renderers for the pitch deck design system.
 Warm background, DM Serif Display headlines, Plus Jakarta Sans body, emerald accent.
 """
 from __future__ import annotations

@@ -1,7 +1,7 @@
 [project]
 name = "openslides"
 version = "2.0.0"
-description = "Prompt + URL -> branded pitch deck. A floom app."
+description = "Prompt + URL -> branded pitch deck."
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.11"
@@ -18,9 +18,6 @@ dependencies = [
 [project.optional-dependencies]
 audit = ["google-genai==1.9.0"]
 all = ["openslides[audit]"]
-
-[project.scripts]
-openslides = "openslides.main:cli"
 
 [build-system]
 requires = ["setuptools>=75.0"]

@@ -70,9 +70,9 @@ SLIDE_SCHEMAS: dict[str, dict] = {
 _EXAMPLE_DECK = [
     {
         "type": "title",
-        "company_name": "floom",
+        "company_name": "acme",
         "headline": "The Production Layer for AI Scripts",
-        "subheadline": "AI writes the code. floom ships it.",
+        "subheadline": "AI writes the code. We ship it.",
         "bottom_items": ["Pre-Seed", "$200K SAFE", "Federico De Ponte", "2026"]
     },
     {
@@ -115,7 +115,7 @@ _EXAMPLE_DECK = [
         "headline": "Not a Hosting Platform. A New Abstraction.",
         "label": "Competition",
         "columns": [
-            {"name": "floom", "items": [
+            {"name": "acme", "items": [
                 {"text": "One-command deploy from script", "good": True},
                 {"text": "Auto-generated UI", "good": True},
                 {"text": "MCP server built-in", "good": True},
@@ -179,7 +179,7 @@ _EXAMPLE_DECK = [
         ],
         "ask_amount": "$200K",
         "ask_uses": ["MVP launch and private beta", "First 100 deployed apps", "3-month runway to seed metrics"],
-        "contact_info": {"email": "fede@floom.dev", "linkedin": "linkedin.com/in/federicodeponte"}
+        "contact_info": {"email": "fede@acme.com", "linkedin": "linkedin.com/in/federicodeponte"}
     }
 ]
 

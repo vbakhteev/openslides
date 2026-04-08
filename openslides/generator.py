@@ -38,7 +38,7 @@ class DeckGenerator:
         gen = DeckGenerator()
         config = gen.generate(
             prompt="Raising $200K pre-seed for AI deploy platform",
-            brand=BrandContext(company_name="floom", domain="floom.dev"),
+            brand=BrandContext(company_name="acme", domain="acme.com"),
             audience="vc",
         )
         # config is a dict ready for SlideBuilder

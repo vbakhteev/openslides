@@ -51,7 +51,7 @@ def code_block(
 
 def browser_mockup(
     title: str = "My App",
-    url: str = "my-app.floom.dev",
+    url: str = "my-app.example.com",
     fields: list[dict] | None = None,
     button_text: str = "Submit",
     badge_text: str = "Live",
@@ -120,7 +120,7 @@ def output_badges(
 
 
 def deploy_command(
-    command: str = "$ floom deploy",
+    command: str = "$ openslides deploy",
     stat_value: str = "<60s",
     theme: Theme | None = None,
 ) -> str:
