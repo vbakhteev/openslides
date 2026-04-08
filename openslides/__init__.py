@@ -4,7 +4,7 @@ from __future__ import annotations
 from .theme import Theme, DarkTheme, LightTheme
 from .logos import LogoResult, resolve_logo, resolve_logos
 from .generator import DeckGenerator, BrandContext
-from .main import generate_deck, DeckResult
+from .main import generate_deck
 
 __version__ = "2.0.0"
 __all__ = [
@@ -17,5 +17,4 @@ __all__ = [
     "DeckGenerator",
     "BrandContext",
     "generate_deck",
-    "DeckResult",
 ]
