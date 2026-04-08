@@ -13,17 +13,13 @@ from openslides.generator import DeckGenerator
 def generate(
     prompt: str,
     company_url: str = None,
-    design_system_url: str = None,
-    recipient: str = None,
-    deck_type: str = "pitch",
     audience: str = "vc",
+    deck_type: str = "pitch",
 ) -> dict:
     """Generate a branded pitch deck from a prompt and optional company URL."""
     result = generate_deck(
         prompt=prompt,
         company_url=company_url,
-        design_system_url=design_system_url,
-        recipient=recipient,
         deck_type=deck_type,
         audience=audience,
         api_key=context.get_secret("GEMINI_API_KEY"),
@@ -32,9 +28,10 @@ def generate(
     output = {
         "deck_id": result.deck_id,
         "slide_count": len(result.html_slides),
+        "slides": result.html_slides,
     }
 
-    # Return PDF as base64 when available
+    # Always return PDF as base64
     if result.pdf_path:
         pdf_file = Path(result.pdf_path)
         if pdf_file.exists():

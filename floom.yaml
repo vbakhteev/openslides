@@ -20,25 +20,14 @@ endpoints:
           type: string
           description: Company website to scrape brand from
           example: "https://floom.dev"
-        design_system_url:
-          type: string
-          description: Explicit design system JSON URL
-        recipient:
-          type: string
-          description: Name for title slide personalization
-          example: "John Smith"
-        deck_type:
-          type: string
-          enum: [pitch, sales, update, general]
-          default: pitch
         audience:
           type: string
           enum: [vc, angel, ff, customer]
           default: vc
-        format:
+        deck_type:
           type: string
-          enum: [html, pdf, all]
-          default: pdf
+          enum: [pitch, sales, update, general]
+          default: pitch
     outputs:
       type: object
       properties:
@@ -56,7 +45,7 @@ endpoints:
           type: array
           items:
             type: string
-          description: HTML slide strings (only when format is html or all)
+          description: HTML slide strings
 
   POST /iterate:
     summary: Regenerate specific slides
